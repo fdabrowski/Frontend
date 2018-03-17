@@ -1,10 +1,11 @@
-var athletes = {}
+"use strict";
+var athletes = {};
 
-athletes.module = (function() {
+athletes.module = (function(){
+
     var athletesList = [];
-
+    
     return {
-
         addAthlete: function(athlete){
             athletesList.push(athlete);
         },
@@ -21,8 +22,8 @@ athletes.module = (function() {
                 return item.firstName === firstName;
             });
         }
-    }
-})();
+    };
+}());
 
 
 function Athlete (firstName, secondName, age, discipline, club){
