@@ -1,8 +1,8 @@
 {
-  "name": "lab2",
+  "name": "lab5",
   "version": "1.0.0",
   "description": "",
-  "main": "helo.js",
+  "main": "rxjs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "http-server": "^0.11.1",
+    "jquery": "^3.3.1",
     "rxjs": "^5.5.8"
   }
 }
