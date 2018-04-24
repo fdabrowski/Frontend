@@ -1,0 +1,29 @@
+#board {
+    border: 1px solid black;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    background-color: bisque
+}
+
+#player {
+    border: 1px solid blue;
+    background-color: blue;
+    height: 50px;
+    width: 50px;
+    top: 50px;
+    right: 50px;
+    position: absolute;
+    
+}
+
+#ai {
+    border: 1px solid red;
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    top: 100px;
+    right: 100px;
+    position: absolute;
+}
+
