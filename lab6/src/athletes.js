@@ -27,10 +27,42 @@ var Athlete = /** @class */ (function (_super) {
     }
     return Athlete;
 }(Person));
-function changeNationality(athlete, newNationality) {
-    athlete.nationality = newNationality;
-}
+var AthletesClub = /** @class */ (function () {
+    function AthletesClub() {
+        this.athletes = [];
+    }
+    AthletesClub.prototype.addAthlete = function (athlete) {
+        this.athletes.push(athlete);
+    };
+    AthletesClub.prototype.removeAthlete = function (name) {
+        this.athletes = this.athletes.filter(function (athlete) { return athlete.secondName !== name; });
+    };
+    AthletesClub.prototype.changeNationality = function (name, newNationality) {
+        var athlete = this.athletes
+            .filter(function (athlete) { return athlete.secondName === name; })
+            .map(function (athlete) { return athlete.nationality = newNationality; });
+    };
+    AthletesClub.prototype.getOlderThan = function (value) {
+        return this.athletes.filter(function (athlete) { return athlete.age > value; });
+    };
+    return AthletesClub;
+}());
 var footballPlayer = new Athlete("Robert", "Lewandowski", 29, "POLSKA", "football", "Bayern Monachium");
-console.log(footballPlayer);
-changeNationality(footballPlayer, "NIMECY");
-console.log(footballPlayer);
+var footballPlayer1 = new Athlete("Jan", "Arnold", 19, "POLSKA", "football", "Bayern Monachium");
+var footballPlayer2 = new Athlete("Rudy", "Bolek", 39, "POLSKA", "football", "Bayern Monachium");
+var athleteClub = new AthletesClub();
+athleteClub.addAthlete(footballPlayer);
+athleteClub.addAthlete(footballPlayer1);
+athleteClub.addAthlete(footballPlayer2);
+console.log("All Athlets in the club: ");
+console.log(athleteClub.athletes);
+athleteClub.removeAthlete("Arnold");
+console.log("After remove Arnold: ");
+console.log(athleteClub.athletes);
+athleteClub.changeNationality("Bolek", "NIEMCY");
+console.log("After change Bolek's natonality: ");
+console.log(athleteClub.athletes);
+console.log("Older than 20: ");
+console.log(athleteClub.getOlderThan(20));
+console.log("Older than 30: ");
+console.log(athleteClub.getOlderThan(30));
