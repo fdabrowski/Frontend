@@ -95,4 +95,9 @@ Przypomnienie :
 			
 			* Vue.js - jeszcze lżejszy od powyższych
 			
+ZADANIE 1. Ze strony angulara tutorial TOUR OF HEROES 1-5 pkt.
+
+ZADANIE 2. Tworzymy ATHLETES <-> List of athletes , analogicznie do hero <-> list of heroes.
+
+Następne zajęcia pkt 6. 7. 8. 
 								
