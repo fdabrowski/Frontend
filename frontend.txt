@@ -1,0 +1,98 @@
+-------------- JAVASCRIPT ES5 "stary"
+--- LAB 1
+
+* Object oriented, ale bez klas
+
+* Język funkcyjny:
+	- funkcja jako parametr,
+	- funkcja jako argument innej funkcji,
+	- funkcja jako zmienna,
+	- funkcja jako wartość zwracana
+
+
+* hoisting: wynosi deklaracje zmiennych i funkcji do początku pliku(funckja zdefiniowana poniżej może być użyta powyżej)
+zmienna :
+	- var - lokalne np. var i = 0;
+	- '' - globalne np. i = 0;
+	
+* THIS - konteksty działania funkcji
+	- funkcja(zwykły kontekst),
+	- konstruktora (!!!!) wiąże do obiektu jak jest wywołana z new, jak nie to do globala,
+	- metody - w kontekscie metody this wiążę do obiektu którego jest częścią,
+	- apply/call - powiąże do przeksazanego obiektu
+	
+	
+ZADANIE 1:
+	Moduł / interfejs publiczny dla dziedziny - SPORTOWCY
+	Zrobienie wzorca module ktory bedzie oferowalo interfejs:
+	np. dla samochod:
+	- dodaj samochod itp.
+	- 2,3 metody,
+	- inicjalizacja
+	
+Uczyć się z :
+	- mozilla development mdn
+
+--- LAB 2
+
+Do ZADANIE 1 dodac poprawiony kod z linter + ciekawsze metody
+
+* Dziedziczenie
+
+- prototypowe - (dopisać)
+
+ZADANIE 2. Zrobić dziedziczenie 1 lub 2 etapowe człowiek -> sportowiec
+
+ES 6
+
+- lambda 										x
+- closes										
+- template strings								x
+- default ! + rest + spend						x
+- let !!!, const - let zastepuje var			x
+- iterators + for ... of						x
+
+ZADANIE 3. Połączyć 2 poprzednie zadania w ES6 przy uzyciu powyzszych mechanizmow. (zrobic checkliste, uzyc kazdego z powyzszych mechanizmow , moze bez iterators)
+
+--- LAB 5
+
+- marbles diagram
+- flat map observable (teraz juz switch map)
+
+ZADANIE 1. Usystematyzować wyniki z query zwracanego z obserwable - wizualizacja wyniku wiki searcha
+* nazwa [link]
+* nazwa [link]
+* nazwa [link]
+* nazwa [link]
+ZADANIE 2. Gra przegladarkowa - budujemy mape  (prostokat), jeden kwadrat przesuwa sie automatycznie , drugi go goni , jak zlapie to wygrywa. losowanie co np. 1s
+Wykorzystac strumienie. JAK NAJWIECEJ RXJS, eventy keyup, mozna tez mysz
+
+
+---- LAB 6 klasa: ts + mini API (
+	- CRUD - dodaj sportowca, usun itp
+	- interfejsy
+	- dziedziczenie
+	
+	vehicle
+	^
+	|
+	|
+	Car
+	
+	
+--- LAB 7
+
+Przypomnienie : 
+- ES 5 - 'good parts'
+- ES 6 - 'syntatic sugar' - są klasy ale brak kontroli typow
+- Typescript = zasadnicza roznica to to ze w typescript mamy kontrole typow - bledy kompilatora podczas kompilacji programu, RXJS
+
+				|
+				v
+			* Angular (2+) (Google)
+			
+			* React JS (Facebook) - bardziej bibilioteka, do mniejszych zastosowań
+			
+			* Vue.js - jeszcze lżejszy od powyższych
+			
+								
