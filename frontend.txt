@@ -101,3 +101,11 @@ ZADANIE 2. Tworzymy ATHLETES <-> List of athletes , analogicznie do hero <-> lis
 
 Następne zajęcia pkt 6. 7. 8. 
 								
+--- LAB 8
+
+- interakcja między komponentami
+
+	Komponenty komunikują sie ze soba poprzez wywolanie template jednego w drugim. Parent przekazuje dane do child przez właściwości (properties ([name]='name')),
+	a child do parenta poprzez eventy
+
+- formularze
