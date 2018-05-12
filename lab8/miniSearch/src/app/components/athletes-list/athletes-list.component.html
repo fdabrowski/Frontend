@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor='let athlete of athletesList'> {{athlete.firstName}} {{athlete.secondName}}</li>
+</ul>
+
+<app-athletes-search [allAthletes]='athletesList'></app-athletes-search>
