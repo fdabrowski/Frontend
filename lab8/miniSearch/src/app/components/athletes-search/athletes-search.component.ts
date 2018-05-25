@@ -8,7 +8,7 @@ import {FormControl} from '@angular/forms';
   templateUrl: './athletes-search.component.html',
   styleUrls: ['./athletes-search.component.css']
 })
-export class AthletesSearchComponent implements OnInit {
+export class AthletesSearchComponent {
 
   @Input() public searchControl: FormControl = new FormControl();
   @Input() allAthletes: Athlete[];
@@ -23,9 +23,6 @@ export class AthletesSearchComponent implements OnInit {
         }
       };
     });
-  }
-
-  ngOnInit() {
   }
 
 }
