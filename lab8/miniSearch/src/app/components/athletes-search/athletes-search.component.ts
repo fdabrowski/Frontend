@@ -1,6 +1,6 @@
-import { Athlete } from './../../model/athlete';
-import { Component, OnInit, Input } from '@angular/core';
-import { FormControl} from '@angular/forms';
+import {Athlete} from './../../model/athlete';
+import {Component, OnInit, Input} from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 
 @Component({
@@ -11,13 +11,20 @@ import { FormControl} from '@angular/forms';
 export class AthletesSearchComponent implements OnInit {
 
   @Input() public searchControl: FormControl = new FormControl();
-
+  @Input() allAthletes: Athlete[];
   searchItems: Athlete[] = [];
-  athletesList: Athlete[];
+
 
   constructor() {
-    this.searchControl.valueChanges.subscribe( (searchItem) => {
-        this.searchItems.includes(searchItem);
+    this.searchControl.valueChanges.subscribe((searchItem) => {
+      this.searchItems = [];
+      for (const item of this.allAthletes) {
+        if (item.secondName.includes(searchItem)) {
+          console.log(item);
+          this.searchItems.push(item);
+        }
+      }
+      ;
     });
   }
 

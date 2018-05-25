@@ -1,3 +1,8 @@
-<p>
-  athletes-details works!
-</p>
+<div *ngIf='athlete'>
+  <div><span>First Name: </span>{{athlete.firstName}}</div>
+  <div><span>Second Name: </span>{{athlete.secondName}}</div>
+  <div><span>Age: </span>{{athlete.age}}</div>
+  <div><span>Club: </span>{{athlete.club}}</div>
+  <div><span>Discipline: </span>{{athlete.dyscipline}}</div>
+  <div><span>Nationality: </span>{{athlete.nationality}}</div>
+</div>
