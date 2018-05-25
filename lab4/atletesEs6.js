@@ -60,7 +60,7 @@ function changeNationalityOnPolish() {
 }
 
 createAthleteList();
-// console.log(filterOlderThanAthlete(35));
-// console.log(filterOlderThanAthlete());
-// console.log(changeNationalityOnPolish());
-//console.log(robert.getShortDescription());
+console.log(filterOlderThanAthlete(35));
+console.log(filterOlderThanAthlete());
+console.log(changeNationalityOnPolish());
+console.log(robert.getShortDescription());
