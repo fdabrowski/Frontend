@@ -1,0 +1,9 @@
+<h2>My Athletes</h2>
+<div *ngIf="selectedAthlete">
+    <ul class="athletes">
+      <li *ngFor="let athlete of athletes" (click)="onSelect(athlete)" [class.selected]="athlete === selectedAthlete">
+          <span class="badge">{{athlete.firstName}}</span> {{athlete.secondName}}
+      </li>
+    </ul>
+</div>
+<app-athlete-detail [athlete]="selectedAthlete"></app-athlete-detail>

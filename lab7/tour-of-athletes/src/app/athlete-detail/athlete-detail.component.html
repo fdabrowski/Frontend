@@ -1,0 +1,14 @@
+<div *ngIf='athlete'>
+  <h2>{{ athlete.secondName | uppercase }} Details</h2>
+  <div><span>First Name: </span>{{athlete.firstName}}</div>
+  <div><span>Second Name: </span>{{athlete.secondName}}</div>
+  <div><span>Age: </span>{{athlete.age}}</div>
+  <div><span>Club: </span>{{athlete.club}}</div>
+  <div><span>Discipline: </span>{{athlete.discipline}}</div>
+  <div><span>Nationality: </span>{{athlete.nationality}}</div>
+  <div>
+    <label>Second Name:
+      <input [(ngModel)]='athlete.secondName' placeholder="secondName">
+    </label>
+  </div>
+</div>
