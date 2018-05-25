@@ -14,17 +14,14 @@ export class AthletesSearchComponent implements OnInit {
   @Input() allAthletes: Athlete[];
   searchItems: Athlete[] = [];
 
-
   constructor() {
     this.searchControl.valueChanges.subscribe((searchItem) => {
       this.searchItems = [];
       for (const item of this.allAthletes) {
         if (item.secondName.includes(searchItem)) {
-          console.log(item);
           this.searchItems.push(item);
         }
-      }
-      ;
+      };
     });
   }
 
