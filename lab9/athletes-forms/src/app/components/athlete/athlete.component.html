@@ -1,0 +1,49 @@
+<div class="form-group formDiv container">
+  <h1>Add athlete</h1>
+  <form [formGroup]='myGroup' (ngSubmit)='onSubmit()'>
+    <div class="form-group">
+      <label for="firstName">First name:</label>
+      <input id="firstName" class="form-control" type="text" [formControl]="myGroup.controls['firstName']" placeholder="first name">
+      <div *ngIf="formFirstName.dirty && formFirstName.hasError('required')" class="alert alert-danger">Fill first name</div>
+      <div *ngIf="formFirstName.dirty && !formFirstName.hasError('required') && formFirstName.hasError('isNameValid')" class="alert alert-danger">delete inappropriate characters</div>
+      <!--<div *ngIf="formFirstName.hasError('minLength')">Min 3 letters</div>-->
+    </div>
+    <div class="form-group">
+      <label for="secondName">Second name:</label>
+      <input id="secondName" class="form-control" type="text" [formControl]="myGroup.controls['secondName']" placeholder="second name">
+      <div *ngIf="formSecondName.dirty && formSecondName.hasError('required')" class="alert alert-danger">Fill second name</div>
+      <div *ngIf="formSecondName.dirty && !formSecondName.hasError('required') && formSecondName.hasError('isNameValid')" class="alert alert-danger">delete inappropriate characters</div>
+    </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input id="age" class="form-control" type="number" [formControl]="myGroup.controls['age']" placeholder="age">
+      <div *ngIf="formAge.hasError('max')" class="alert alert-danger">You are too old</div>
+      <div *ngIf="formAge.hasError('min')" class="alert alert-danger">You are too young</div>
+    </div>
+    <div class="form-group">
+      <label for="discipline">Discipline:</label>
+      <input id="discipline" class="form-control" type="text" [formControl]="myGroup.controls['discipline']" placeholder="discipline">
+      <div *ngIf="formDyscipline.dirty && formDyscipline.hasError('required')" class="alert alert-danger">Fill discipline</div>
+    </div>
+    <div class="form-group">
+      <label for="club">Club:</label>
+      <input id="club" class="form-control" type="text" [formControl]="myGroup.controls['club']" placeholder="club">
+      <div *ngIf="formClub.dirty && formClub.hasError('required')" class="alert alert-danger">Fill club</div>
+      <div *ngIf="formClub.hasError('minlength')" class="alert alert-danger">Minimum 3 letters</div>
+    </div>
+    <div class="form-group">
+      <label for="nationality">Nationality:</label>
+      <input id="nationality" class="form-control" type="text" [formControl]="myGroup.controls['nationality']" placeholder="nationality">
+      <div *ngIf="formNationality.dirty && formNationality.hasError('required')" class="alert alert-danger">Fill nationality</div>
+      <div *ngIf="formNationality.hasError('minlength')" class="alert alert-danger">Minimum 3 letters</div>
+      <div *ngIf="formNationality.dirty && !formNationality.hasError('required') && formNationality.hasError('isNameValid')" class="alert alert-danger">delete inappropriate characters</div>
+    </div>
+    <button type="submit" class="btn btn-default pull-right" [disabled]="myGroup.invalid">OK</button>
+  </form>
+</div>
+
+<!--<div *ngIf="imie.hasError('required')">Imię wymagane</div>-->
+<!--<div *ngIf="imie.hasError('minLength')">Imię musi mieć 3 litery</div>-->
+<!--<div *ngIf="imie.hasError('bolekValue')">Bolek denied</div>-->
+
+<!--<div *ngIf="rokUr.hasError('max')">Za stary</div>-->

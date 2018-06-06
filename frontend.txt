@@ -112,3 +112,13 @@ Następne zajęcia pkt 6. 7. 8.
 
 ZADANIE 1. Projekt "MiniSearch (ReactiveForm)" Wyszukiwarka w domenie , pasujace nazwisko sportowca
 
+--- LAB 9
+
+- forms, services, form groups
+- SINGLETON
+- async , RXJS
+- remote/http
+- Dependency injection
+
+ZADANIE 1. CRUD forms, services, wlasne walidatory, ? STAN FORMULARZA(zmieniony, bez zmian, wszystkie pola sa zwalidowane(poprawny)
+status: VALID, INVALID, PENDING itp), (dla chetnych - servis po stronie backend http i wtedy post i get)
