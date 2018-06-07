@@ -3,16 +3,27 @@
   <form [formGroup]='myGroup' (ngSubmit)='onSubmit()'>
     <div class="form-group">
       <label for="firstName">First name:</label>
-      <input id="firstName" class="form-control" type="text" [formControl]="myGroup.controls['firstName']" placeholder="first name">
-      <div *ngIf="formFirstName.dirty && formFirstName.hasError('required')" class="alert alert-danger">Fill first name</div>
-      <div *ngIf="formFirstName.dirty && !formFirstName.hasError('required') && formFirstName.hasError('isNameValid')" class="alert alert-danger">delete inappropriate characters</div>
+      <input id="firstName" class="form-control" type="text" [formControl]="myGroup.controls['firstName']"
+             placeholder="first name">
+      <div *ngIf="formFirstName.dirty && formFirstName.hasError('required')" class="alert alert-danger">Fill first
+        name
+      </div>
+      <div *ngIf="formFirstName.dirty && !formFirstName.hasError('required') && formFirstName.hasError('isNameValid')"
+           class="alert alert-danger">delete inappropriate characters
+      </div>
       <!--<div *ngIf="formFirstName.hasError('minLength')">Min 3 letters</div>-->
     </div>
     <div class="form-group">
       <label for="secondName">Second name:</label>
-      <input id="secondName" class="form-control" type="text" [formControl]="myGroup.controls['secondName']" placeholder="second name">
-      <div *ngIf="formSecondName.dirty && formSecondName.hasError('required')" class="alert alert-danger">Fill second name</div>
-      <div *ngIf="formSecondName.dirty && !formSecondName.hasError('required') && formSecondName.hasError('isNameValid')" class="alert alert-danger">delete inappropriate characters</div>
+      <input id="secondName" class="form-control" type="text" [formControl]="myGroup.controls['secondName']"
+             placeholder="second name">
+      <div *ngIf="formSecondName.dirty && formSecondName.hasError('required')" class="alert alert-danger">Fill second
+        name
+      </div>
+      <div
+        *ngIf="formSecondName.dirty && !formSecondName.hasError('required') && formSecondName.hasError('isNameValid')"
+        class="alert alert-danger">delete inappropriate characters
+      </div>
     </div>
     <div class="form-group">
       <label for="age">Age:</label>
@@ -22,8 +33,11 @@
     </div>
     <div class="form-group">
       <label for="discipline">Discipline:</label>
-      <input id="discipline" class="form-control" type="text" [formControl]="myGroup.controls['discipline']" placeholder="discipline">
-      <div *ngIf="formDyscipline.dirty && formDyscipline.hasError('required')" class="alert alert-danger">Fill discipline</div>
+      <input id="discipline" class="form-control" type="text" [formControl]="myGroup.controls['discipline']"
+             placeholder="discipline">
+      <div *ngIf="formDyscipline.dirty && formDyscipline.hasError('required')" class="alert alert-danger">Fill
+        discipline
+      </div>
     </div>
     <div class="form-group">
       <label for="club">Club:</label>
@@ -33,12 +47,23 @@
     </div>
     <div class="form-group">
       <label for="nationality">Nationality:</label>
-      <input id="nationality" class="form-control" type="text" [formControl]="myGroup.controls['nationality']" placeholder="nationality">
-      <div *ngIf="formNationality.dirty && formNationality.hasError('required')" class="alert alert-danger">Fill nationality</div>
+      <input id="nationality" class="form-control" type="text" [formControl]="myGroup.controls['nationality']"
+             placeholder="nationality">
+      <div *ngIf="formNationality.dirty && formNationality.hasError('required')" class="alert alert-danger">Fill
+        nationality
+      </div>
       <div *ngIf="formNationality.hasError('minlength')" class="alert alert-danger">Minimum 3 letters</div>
-      <div *ngIf="formNationality.dirty && !formNationality.hasError('required') && formNationality.hasError('isNameValid')" class="alert alert-danger">delete inappropriate characters</div>
+      <div
+        *ngIf="formNationality.dirty && !formNationality.hasError('required') && formNationality.hasError('isNameValid')"
+        class="alert alert-danger">delete inappropriate characters
+      </div>
     </div>
-    <button type="submit" class="btn btn-default pull-right" [disabled]="myGroup.invalid">OK</button>
+      <button type="submit" class="btn btn-default pull-right" [disabled]="myGroup.invalid">OK</button>
+    <div class="request-info">
+      <div *ngIf="isOK" class="alert alert-success"> Athlete successfully aded</div>
+      <div *ngIf="isFailed" class="alert alert-danger"> Something goes wrong :(</div>
+    </div>
+
   </form>
 </div>
 

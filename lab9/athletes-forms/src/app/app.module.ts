@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AthleteComponent } from './components/athlete/athlete.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AthleteService} from './services/athlete.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,12 @@ import {AthleteService} from './services/athlete.service';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    AthleteService
+    AthleteService,
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })

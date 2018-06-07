@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AthleteService} from '../../services/athlete.service';
 import {Athlete} from 'app/model/athletes.model';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import 'rxjs/add/operator/finally';
 
 @Component({
   selector: 'app-athlete',
@@ -17,6 +18,8 @@ export class AthleteComponent implements OnInit {
   formDyscipline: AbstractControl;
   formClub: AbstractControl;
   formNationality: AbstractControl;
+  isOK: boolean;
+  isFailed: boolean;
 
   constructor(private athleteService: AthleteService,
               private fb: FormBuilder) {
@@ -50,12 +53,12 @@ export class AthleteComponent implements OnInit {
     });
   }
 
-   private namesValidator(control: FormControl){
-      if(control.value.match(/[^a-zA-Z,-]/i)){
-        return {
-          'isNameValid': true
-        }
-      }
+  private namesValidator(control: FormControl) {
+    if (control.value.match(/[^a-zA-Z,-]/i)) {
+      return {
+        'isNameValid': true
+      };
+    }
   }
 
   private setInputs() {
@@ -67,16 +70,33 @@ export class AthleteComponent implements OnInit {
     this.formNationality = this.myGroup.controls['nationality'];
   }
 
-  onSubmit() {
-    const newPerson = new Athlete(
+  private createPerson() {
+    return new Athlete(
       this.formFirstName.value,
       this.formSecondName.value,
       this.formAge.value,
       this.formDyscipline.value,
       this.formClub.value,
       this.formNationality.value);
+  }
 
-    this.athleteService.addAthletes(newPerson);
+  onSubmit() {
+    this.athleteService.addAthletes(this.createPerson()).subscribe(
+      () => {
+        this.isOK = true;
+        this.isFailed = false;
+      },
+      () => {
+        this.isFailed = true;
+        this.isOK = false;
+      },
+      () => {
+        setTimeout( () =>{
+          this.isFailed = false;
+          this.isOK = false;
+      }, 5000)
+      }
+    );
   }
 
 }

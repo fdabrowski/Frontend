@@ -4,6 +4,10 @@
   height: 250px;
 }
 
+.request-info {
+  margin-top: 100px;
+}
+
 .ng-valid:not(form), .ng-valid.required {
   border-left: 5px solid #42A948; /* green */
 }
