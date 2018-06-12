@@ -11,7 +11,6 @@
       <div *ngIf="formFirstName.dirty && !formFirstName.hasError('required') && formFirstName.hasError('isNameValid')"
            class="alert alert-danger">delete inappropriate characters
       </div>
-      <!--<div *ngIf="formFirstName.hasError('minLength')">Min 3 letters</div>-->
     </div>
     <div class="form-group">
       <label for="secondName">Second name:</label>
@@ -58,17 +57,10 @@
         class="alert alert-danger">delete inappropriate characters
       </div>
     </div>
-      <button type="submit" class="btn btn-default pull-right" [disabled]="myGroup.invalid">OK</button>
+    <button type="submit" class="btn btn-default pull-right" [disabled]="myGroup.invalid">OK</button>
     <div class="request-info">
       <div *ngIf="isOK" class="alert alert-success"> Athlete successfully aded</div>
       <div *ngIf="isFailed" class="alert alert-danger"> Something goes wrong :(</div>
     </div>
-
   </form>
 </div>
-
-<!--<div *ngIf="imie.hasError('required')">Imię wymagane</div>-->
-<!--<div *ngIf="imie.hasError('minLength')">Imię musi mieć 3 litery</div>-->
-<!--<div *ngIf="imie.hasError('bolekValue')">Bolek denied</div>-->
-
-<!--<div *ngIf="rokUr.hasError('max')">Za stary</div>-->

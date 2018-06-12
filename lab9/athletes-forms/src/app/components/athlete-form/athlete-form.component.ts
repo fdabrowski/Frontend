@@ -5,11 +5,11 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '
 import 'rxjs/add/operator/finally';
 
 @Component({
-  selector: 'app-athlete',
+  selector: 'app-athlete-form',
   templateUrl: './athlete.component.html',
   styleUrls: ['./athlete.component.css']
 })
-export class AthleteComponent implements OnInit {
+export class AthleteFormComponent implements OnInit {
 
   myGroup: FormGroup;
   formFirstName: AbstractControl;
@@ -82,7 +82,9 @@ export class AthleteComponent implements OnInit {
 
   onSubmit() {
     this.athleteService.addAthletes(this.createPerson()).subscribe(
-      () => {
+      (data) => {
+        console.log(data);
+        this.athleteService.createAthleteList(data);
         this.isOK = true;
         this.isFailed = false;
       },

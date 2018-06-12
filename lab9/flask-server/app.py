@@ -1,5 +1,7 @@
-from flask import Flask, request, json
+from flask import Flask, request, json, jsonify
 from flask_cors import CORS, cross_origin
+
+from athlete import Athlete
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -16,12 +18,24 @@ def hello_world():
 @app.route('/athletes', methods=['GET', 'POST'])
 @cross_origin()
 def getAthlete():
-    athlete = request.data
-    athleteJson = json.loads(athlete)
-    athletes.append(athleteJson)
-    print(athletes)
-    return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
+    athletes.append(createAthlete(request.data))
+    return jsonify([item.serialize() for item in athletes]), 200, {'ContentType': 'application/json'}
 
+@app.route('/deleteAthlete')
+@cross_origin()
+def deleteAthlete():
+    athletes.remove(createAthlete(request.data))
+    # return jsonify([item.serialize() for item in athletes]), 200, {'ContentType': 'application/json'}
 
 if __name__ == '__main__':
     app.run()
+
+
+def createAthlete(data):
+    athleteJson = json.loads(data)
+    return Athlete(athleteJson.get('firstName'),
+                   athleteJson.get('secondName'),
+                   athleteJson.get('age'),
+                   athleteJson.get('discipline'),
+                   athleteJson.get('club'),
+                   athleteJson.get('nationality'))

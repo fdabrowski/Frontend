@@ -1,0 +1,14 @@
+<div>
+  <p>Search athletes:
+    <input type="search" placeholder="Search term" [formControl]="searchControl">
+  </p>
+  <div class="detail-width">
+    <ul>
+      <li class="list-group-item" *ngFor="let searchTerm of searchItems">
+        <h2>{{searchTerm.firstName}} {{searchTerm.secondName}} details</h2>
+        <app-athletes-details [athlete]="searchTerm"></app-athletes-details>
+      </li>
+    </ul>
+  </div>
+</div>
+

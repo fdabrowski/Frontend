@@ -122,3 +122,24 @@ ZADANIE 1. Projekt "MiniSearch (ReactiveForm)" Wyszukiwarka w domenie , pasujace
 
 ZADANIE 1. CRUD forms, services, wlasne walidatory, ? STAN FORMULARZA(zmieniony, bez zmian, wszystkie pola sa zwalidowane(poprawny)
 status: VALID, INVALID, PENDING itp), (dla chetnych - servis po stronie backend http i wtedy post i get)
+
+--- LAB 10
+
+Do doczytania:
+- webpack
+	*transpiler / kompilator -> ES5
+- bundle
+- optymalizacja
+- ugly -> zaciemnianie kodu . (GWT)
+- debugging
+- security / OAUTH 2.0 / OPENID CONNECT
+- HTTP / rest :
+	* response code
+- JSON
+- TESTOWANIE AUTOMATYCZNE!:
+	* selenium web driver
+- mockowanie ( HttpClientTestingModule ), dependancy injection
+
+ZADANIE 10. ROUTING
+
+Podzielic CRUDA z ostatniego zadania na min. 2 widoki, skonfigurować.

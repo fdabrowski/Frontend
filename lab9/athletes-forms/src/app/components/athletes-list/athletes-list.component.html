@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-4">
+    <ul class="list-group athletes-list margin-right-5">
+      <h1>Athletes List</h1>
+      <div class="margin-top-20">
+        <li class="list-group-item" *ngFor="let athlete of athletesList; let i = index" [attr.data-index]="i"><span
+          class="pull-left ">{{i+1}}.</span>
+          <p>{{athlete.firstName}} {{athlete.secondName}}</p>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <div class="col-sm-8 margin-top-20">
+    <app-athletes-search [allAthletes]='athletesList'></app-athletes-search>
+  </div>
+</div>
+
+
+
