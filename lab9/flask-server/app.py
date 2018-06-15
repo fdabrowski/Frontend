@@ -8,34 +8,44 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 athletes = []
 
-
 @app.route('/')
 @cross_origin()
 def hello_world():
     return 'Hello World!'
 
 
-@app.route('/athletes', methods=['GET', 'POST'])
+@app.route('/addAthlete', methods=['GET', 'POST'])
 @cross_origin()
-def getAthlete():
+def addAthlete():
     athletes.append(createAthlete(request.data))
     return jsonify([item.serialize() for item in athletes]), 200, {'ContentType': 'application/json'}
 
-@app.route('/deleteAthlete')
+@app.route('/deleteAthlete', methods=['GET', 'POST'])
 @cross_origin()
 def deleteAthlete():
-    athletes.remove(createAthlete(request.data))
-    # return jsonify([item.serialize() for item in athletes]), 200, {'ContentType': 'application/json'}
+    athleteJson = json.loads(request.data)
+    removeAthlete(athleteJson.get('id'))
+    return jsonify([item.serialize() for item in athletes]), 200, {'ContentType': 'application/json'}
+
+@app.route('/athletesList', methods=['GET'])
+@cross_origin()
+def getAthletesList():
+    return jsonify([item.serialize() for item in athletes]), 200, {'ContentType': 'application/json'}
 
 if __name__ == '__main__':
     app.run()
 
-
 def createAthlete(data):
     athleteJson = json.loads(data)
-    return Athlete(athleteJson.get('firstName'),
+    return Athlete(athleteJson.get('id'),
+                   athleteJson.get('firstName'),
                    athleteJson.get('secondName'),
                    athleteJson.get('age'),
-                   athleteJson.get('discipline'),
+                   athleteJson.get('disc'),
                    athleteJson.get('club'),
                    athleteJson.get('nationality'))
+
+def removeAthlete(removeId):
+    for athlete in athletes:
+        if athlete.id == removeId:
+            athletes.remove(athlete);

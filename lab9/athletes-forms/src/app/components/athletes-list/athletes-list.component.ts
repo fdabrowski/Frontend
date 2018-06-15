@@ -15,11 +15,10 @@ export class AthletesListComponent {
     this.athletesList = this.athleteService.getAthletes();
   }
 
-
-  // add logic for deleting from list
-  private delete(athlete: Athlete) {
+  deleteFromList(athlete: Athlete) {
       this.athleteService.deleteAthlete(athlete).subscribe(
-        () => {
+        (data) => {
+            this.athleteService.createAthleteList(data);
             this.athletesList = this.athleteService.getAthletes();
       });
   }

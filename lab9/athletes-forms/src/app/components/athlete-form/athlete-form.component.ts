@@ -15,11 +15,12 @@ export class AthleteFormComponent implements OnInit {
   formFirstName: AbstractControl;
   formSecondName: AbstractControl;
   formAge: AbstractControl;
-  formDyscipline: AbstractControl;
+  formDiscipline: AbstractControl;
   formClub: AbstractControl;
   formNationality: AbstractControl;
   isOK: boolean;
   isFailed: boolean;
+
 
   constructor(private athleteService: AthleteService,
               private fb: FormBuilder) {
@@ -65,17 +66,18 @@ export class AthleteFormComponent implements OnInit {
     this.formFirstName = this.myGroup.controls['firstName'];
     this.formSecondName = this.myGroup.controls['secondName'];
     this.formAge = this.myGroup.controls['age'];
-    this.formDyscipline = this.myGroup.controls['discipline'];
+    this.formDiscipline = this.myGroup.controls['discipline'];
     this.formClub = this.myGroup.controls['club'];
     this.formNationality = this.myGroup.controls['nationality'];
   }
 
   private createPerson() {
     return new Athlete(
+      this.athleteService.index,
       this.formFirstName.value,
       this.formSecondName.value,
       this.formAge.value,
-      this.formDyscipline.value,
+      this.formDiscipline.value,
       this.formClub.value,
       this.formNationality.value);
   }
@@ -87,6 +89,7 @@ export class AthleteFormComponent implements OnInit {
         this.athleteService.createAthleteList(data);
         this.isOK = true;
         this.isFailed = false;
+        this.athleteService.index = this.athleteService.index + 1;
       },
       () => {
         this.isFailed = true;

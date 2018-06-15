@@ -3,9 +3,13 @@
     <ul class="list-group athletes-list margin-right-5">
       <h1>Athletes List</h1>
       <div class="margin-top-20">
-        <li class="list-group-item" *ngFor="let athlete of athletesList; let i = index" [attr.data-index]="i"><span
+        <li class="list-group-item" *ngFor="let item of athletesList; let i = index" [attr.deleteAthlete]="item" [attr.data-index]="i"><span
           class="pull-left ">{{i+1}}.</span>
-          <p>{{athlete.firstName}} {{athlete.secondName}}</p>
+          <p>{{item.firstName}} {{item.secondName}}
+            <button type="button" (click)="deleteFromList(item)" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </p>
         </li>
       </div>
     </ul>
